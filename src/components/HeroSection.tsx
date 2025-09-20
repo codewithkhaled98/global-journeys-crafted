@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star, Globe, Users } from 'lucide-react';
-import heroImage from '@/assets/hero-luxury-travel.jpg';
+import heroImage from '@/assets/hero-business-travel.jpg';
 
 interface HeroSectionProps {
   language: 'en' | 'ar';
@@ -10,29 +10,29 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
   const content = {
     en: {
-      headline: 'Luxury Travel Management',
-      subheadline: 'Tailored for Excellence',
-      description: 'Premier Dubai-based travel management company specializing in high-end, bespoke travel solutions for global corporations, VIP guests, and discerning leisure travelers.',
-      cta1: 'Explore Services',
-      cta2: 'Get Consultation',
+      headline: 'Professional Travel Management',
+      subheadline: 'Reliable Transport Solutions',
+      description: 'Dubai-based travel management company providing efficient bus transport solutions for corporations and travelers.',
+      cta1: 'Our Services',
+      cta2: 'Contact Us',
       stats: {
         experience: '10+ Years Experience',
         clients: '500+ Corporate Clients', 
-        destinations: 'Global Destinations',
-        rating: '5-Star Service'
+        destinations: 'UAE Coverage',
+        rating: 'Trusted Service'
       }
     },
     ar: {
-      headline: 'إدارة السفر الفاخرة',
-      subheadline: 'مصممة للتميز',
-      description: 'شركة إدارة السفر الرائدة في دبي والمتخصصة في حلول السفر المخصصة عالية الجودة للشركات العالمية والضيوف كبار الشخصيات والمسافرين الذواقة.',
-      cta1: 'استكشف الخدمات',
-      cta2: 'احصل على استشارة',
+      headline: 'إدارة السفر المهنية',
+      subheadline: 'حلول نقل موثوقة',
+      description: 'شركة إدارة السفر في دبي تقدم حلول النقل بالحافلات للشركات والمسافرين.',
+      cta1: 'خدماتنا',
+      cta2: 'اتصل بنا',
       stats: {
         experience: 'خبرة 10+ سنوات',
         clients: '500+ عميل شركات',
-        destinations: 'وجهات عالمية',
-        rating: 'خدمة 5 نجوم'
+        destinations: 'تغطية الإمارات',
+        rating: 'خدمة موثوقة'
       }
     }
   };
@@ -46,7 +46,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
       <div className="absolute inset-0 z-0">
         <img 
           src={heroImage} 
-          alt="Luxury Travel Dubai"
+          alt="Professional Bus Travel Dubai"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-background/40"></div>
@@ -58,13 +58,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
       <div className="absolute bottom-32 left-10 w-24 h-24 bg-primary-glow/30 rounded-full animate-luxury-float delay-1000 blur-xl"></div>
 
       <div className="container relative z-10 mx-auto px-4 py-20">
-        <div className="max-w-4xl">
+        <div className={`max-w-4xl ${isRTL ? 'mr-0' : 'ml-0'}`}>
           {/* Main Content */}
           <div className="animate-luxury-fade-up">
-            <div className="flex items-center space-x-2 mb-6">
+            <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'} mb-6`}>
               <Star className="w-5 h-5 text-primary fill-current" />
               <span className="text-primary font-medium tracking-wider uppercase text-sm">
-                Premium Travel Solutions
+                Professional Travel Solutions
               </span>
             </div>
             
@@ -81,15 +81,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language }) => {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            <div className={`flex flex-col sm:flex-row gap-4 mb-12 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <a href="#services">
-                <Button className="btn-luxury group">
+                <Button className="btn-business group">
                   {t.cta1}
-                  <ArrowRight className={`w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 ${isRTL ? 'rotate-180' : ''}`} />
+                  <ArrowRight className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'} transition-transform group-hover:translate-x-1 ${isRTL ? 'rotate-180' : ''}`} />
                 </Button>
               </a>
               <a href="#contact">
-                <Button className="btn-luxury-outline">
+                <Button className="btn-business-outline">
                   {t.cta2}
                 </Button>
               </a>
