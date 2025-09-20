@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+/* Fonts are loaded in index.html */
 
 @tailwind base;
 @tailwind components;
@@ -68,11 +68,32 @@
 
   /* RTL Support */
   [dir="rtl"] {
-    --font-family: 'Inter', 'Tajawal', sans-serif;
+    --font-family: 'Tajawal', 'Inter', sans-serif;
   }
 
   [dir="ltr"] {
-    --font-family: 'Inter', sans-serif;
+    --font-family: 'Inter', 'Tajawal', sans-serif;
+  }
+
+  /* RTL Utilities */
+  [dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  [dir="rtl"] .space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+  
+  [dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
   }
 }
 

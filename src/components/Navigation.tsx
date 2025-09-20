@@ -40,7 +40,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, setLanguage }) => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'}`}>
             <img 
               src={gptLogo} 
               alt="GPT Travel Logo" 
@@ -49,7 +49,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, setLanguage }) => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse space-x-8' : 'space-x-8'}`}>
             <a href="#home" className="btn-luxury-ghost">
               {t.home}
             </a>
@@ -57,7 +57,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, setLanguage }) => {
               <button className="btn-luxury-ghost">
                 {t.services}
               </button>
-              <div className="absolute top-full left-0 mt-2 w-48 bg-card border border-border rounded-lg shadow-luxury opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
+              <div className={`absolute top-full ${isRTL ? 'right-0' : 'left-0'} mt-2 w-48 bg-card border border-border rounded-lg shadow-luxury opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300`}>
                 <a href="#inbound" className="block px-4 py-3 text-sm hover:bg-primary/10 rounded-t-lg">
                   {t.inbound}
                 </a>
@@ -75,8 +75,8 @@ const Navigation: React.FC<NavigationProps> = ({ language, setLanguage }) => {
           </div>
 
           {/* Language Switcher & CTA */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
+          <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
+            <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'}`}>
               <Globe className="w-4 h-4 text-primary" />
               <Button
                 variant={language === 'en' ? 'default' : 'ghost'}
@@ -132,7 +132,7 @@ const Navigation: React.FC<NavigationProps> = ({ language, setLanguage }) => {
               <a href="#contact" className="btn-luxury-ghost text-left">
                 {t.contact}
               </a>
-              <div className="flex items-center space-x-2 pt-2">
+              <div className={`flex items-center pt-2 ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'}`}>
                 <Globe className="w-4 h-4 text-primary" />
                 <Button
                   variant={language === 'en' ? 'default' : 'ghost'}

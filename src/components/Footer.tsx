@@ -91,7 +91,7 @@ const Footer: React.FC<FooterProps> = ({ language, setLanguage }) => {
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <div className="flex items-center space-x-3 mb-6">
+            <div className={`flex items-center mb-6 ${isRTL ? 'space-x-reverse space-x-3' : 'space-x-3'}`}>
               <img 
                 src={gptLogo} 
                 alt="GPT Travel Logo" 
@@ -103,7 +103,7 @@ const Footer: React.FC<FooterProps> = ({ language, setLanguage }) => {
             </p>
             
             {/* Language Switcher */}
-            <div className="flex items-center space-x-4 mb-6">
+            <div className={`flex items-center mb-6 ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
               <Globe className="w-5 h-5 text-primary" />
               <span className="text-sm text-foreground/70">Language:</span>
               <Button
@@ -162,7 +162,7 @@ const Footer: React.FC<FooterProps> = ({ language, setLanguage }) => {
         {/* Contact Info Bar */}
         <div className="border-t border-border mt-12 pt-8">
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="flex items-center space-x-3">
+            <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-3' : 'space-x-3'}`}>
               <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                 <MapPin className="w-5 h-5 text-primary" />
               </div>
@@ -176,7 +176,7 @@ const Footer: React.FC<FooterProps> = ({ language, setLanguage }) => {
               </div>
             </div>
 
-            <div className="flex items-center space-x-3">
+            <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-3' : 'space-x-3'}`}>
               <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                 <Phone className="w-5 h-5 text-primary" />
               </div>
@@ -193,7 +193,7 @@ const Footer: React.FC<FooterProps> = ({ language, setLanguage }) => {
               </div>
             </div>
 
-            <div className="flex items-center space-x-3">
+            <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-3' : 'space-x-3'}`}>
               <div className="flex-shrink-0 w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                 <Mail className="w-5 h-5 text-primary" />
               </div>
@@ -218,7 +218,7 @@ const Footer: React.FC<FooterProps> = ({ language, setLanguage }) => {
             {t.copyright}
           </div>
           
-          <div className="flex items-center space-x-4">
+          <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
             <span className="text-xs text-foreground/50">
               {t.poweredBy}
             </span>
@@ -229,7 +229,7 @@ const Footer: React.FC<FooterProps> = ({ language, setLanguage }) => {
               className="btn-luxury-ghost"
             >
               {t.backToTop}
-              <ArrowUp className="w-4 h-4 ml-2" />
+              <ArrowUp className={`w-4 h-4 ${isRTL ? 'mr-2' : 'ml-2'}`} />
             </Button>
           </div>
         </div>
