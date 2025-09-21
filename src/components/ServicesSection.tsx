@@ -95,54 +95,53 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
   const isRTL = language === 'ar';
 
   return (
-    <section id="services" className={`py-20 bg-gradient-dark ${isRTL ? 'rtl' : 'ltr'}`}>
-      <div className="container mx-auto px-4">
+    <section id="services" className={`section-padding bg-gradient-dark ${isRTL ? 'rtl' : 'ltr'}`}>
+      <div className="container-wide">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-luxury-fade-up">
-          <h2 className="text-5xl font-playfair font-bold text-gradient-gold mb-6">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold text-gradient-gold mb-6 text-balance">
             {t.title}
           </h2>
-          <p className="text-xl text-foreground/80 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-foreground/80 max-w-3xl mx-auto text-balance">
             {t.subtitle}
           </p>
         </div>
 
         {/* Inbound Services */}
-        <div id="inbound" className="mb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-luxury-slide-in">
-              <div className="flex items-center space-x-2 mb-6">
-                <MapPin className="w-6 h-6 text-primary" />
-                <span className="text-primary font-semibold tracking-wider uppercase">
+        <div id="inbound" className="mb-24 lg:mb-32">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className={`${isRTL ? 'lg:order-2' : 'lg:order-1'} space-y-8`}>
+              <div className={`inline-flex items-center gap-3 bg-primary/10 backdrop-blur-sm rounded-full px-6 py-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <MapPin className="w-5 h-5 text-primary" />
+                <span className="text-primary font-semibold text-sm tracking-wide">
                   {t.inbound.subtitle}
                 </span>
               </div>
               
-              <h3 className="text-4xl font-playfair font-bold text-gold-light mb-6">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-playfair font-bold text-gradient-gold text-balance">
                 {t.inbound.title}
               </h3>
               
-              <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
+              <p className="text-lg text-foreground/80 leading-relaxed text-balance">
                 {t.inbound.description}
               </p>
 
-              <div className="grid gap-4 mb-8">
-                {t.inbound.services.map((service, index) => {
+              <div className="grid gap-6">
+                {t.inbound.services.slice(0, 4).map((service, index) => {
                   const IconComponent = service.icon;
                   return (
                     <div 
                       key={index} 
-                      className="flex items-start space-x-4 p-4 rounded-lg hover:bg-card/50 transition-all duration-300 hover-lift"
-                      style={{ animationDelay: `${index * 100}ms` }}
+                      className={`flex items-start gap-4 p-6 card-modern ${isRTL ? 'flex-row-reverse text-right' : ''}`}
                     >
-                      <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                        <IconComponent className="w-6 h-6 text-primary" />
+                      <div className="flex-shrink-0 w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center">
+                        <IconComponent className="w-7 h-7 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground mb-2">
+                        <h4 className="font-semibold text-foreground mb-2 text-lg">
                           {service.title}
                         </h4>
-                        <p className="text-sm text-foreground/70">
+                        <p className="text-foreground/70 leading-relaxed">
                           {service.desc}
                         </p>
                       </div>
@@ -152,69 +151,66 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
               </div>
 
               <a href="#contact">
-                <Button className="btn-luxury group">
+                <Button className="btn-modern group w-full sm:w-auto">
                   {t.inbound.cta}
-                  <ArrowRight className={`w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 ${isRTL ? 'rotate-180' : ''}`} />
+                  <ArrowRight className={`w-5 h-5 ${isRTL ? 'mr-3' : 'ml-3'} transition-transform group-hover:${isRTL ? '-translate-x-1' : 'translate-x-1'} ${isRTL ? 'rotate-180' : ''}`} />
                 </Button>
               </a>
             </div>
 
-            <div className="relative animate-luxury-fade-up delay-300">
+            <div className={`${isRTL ? 'lg:order-1' : 'lg:order-2'} relative`}>
               <img 
                 src={vipServicesImage} 
                 alt="VIP Services Dubai"
-                className="w-full h-[600px] object-cover rounded-2xl shadow-luxury hover-glow"
+                className="w-full h-[500px] lg:h-[600px] object-cover rounded-3xl shadow-luxury"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent rounded-2xl"></div>
             </div>
           </div>
         </div>
 
         {/* Outbound Services */}
         <div id="outbound">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative animate-luxury-fade-up lg:order-1 order-2">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className={`${isRTL ? 'lg:order-2' : 'lg:order-1'} relative`}>
               <img 
                 src={corporateTravelImage} 
                 alt="Corporate Travel Management"
-                className="w-full h-[600px] object-cover rounded-2xl shadow-luxury hover-glow"
+                className="w-full h-[500px] lg:h-[600px] object-cover rounded-3xl shadow-luxury"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent rounded-2xl"></div>
             </div>
 
-            <div className="animate-luxury-slide-in lg:order-2 order-1">
-              <div className="flex items-center space-x-2 mb-6">
-                <Globe2 className="w-6 h-6 text-primary" />
-                <span className="text-primary font-semibold tracking-wider uppercase">
+            <div className={`${isRTL ? 'lg:order-1' : 'lg:order-2'} space-y-8`}>
+              <div className={`inline-flex items-center gap-3 bg-primary/10 backdrop-blur-sm rounded-full px-6 py-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <Globe2 className="w-5 h-5 text-primary" />
+                <span className="text-primary font-semibold text-sm tracking-wide">
                   {t.outbound.subtitle}
                 </span>
               </div>
               
-              <h3 className="text-4xl font-playfair font-bold text-gold-light mb-6">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-playfair font-bold text-gradient-gold text-balance">
                 {t.outbound.title}
               </h3>
               
-              <p className="text-lg text-foreground/80 mb-8 leading-relaxed">
+              <p className="text-lg text-foreground/80 leading-relaxed text-balance">
                 {t.outbound.description}
               </p>
 
-              <div className="grid gap-4 mb-8">
-                {t.outbound.services.map((service, index) => {
+              <div className="grid gap-6">
+                {t.outbound.services.slice(0, 4).map((service, index) => {
                   const IconComponent = service.icon;
                   return (
                     <div 
                       key={index} 
-                      className="flex items-start space-x-4 p-4 rounded-lg hover:bg-card/50 transition-all duration-300 hover-lift"
-                      style={{ animationDelay: `${index * 100}ms` }}
+                      className={`flex items-start gap-4 p-6 card-modern ${isRTL ? 'flex-row-reverse text-right' : ''}`}
                     >
-                      <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                        <IconComponent className="w-6 h-6 text-primary" />
+                      <div className="flex-shrink-0 w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center">
+                        <IconComponent className="w-7 h-7 text-primary" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-foreground mb-2">
+                        <h4 className="font-semibold text-foreground mb-2 text-lg">
                           {service.title}
                         </h4>
-                        <p className="text-sm text-foreground/70">
+                        <p className="text-foreground/70 leading-relaxed">
                           {service.desc}
                         </p>
                       </div>
@@ -224,9 +220,9 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ language }) => {
               </div>
 
               <a href="#contact">
-                <Button className="btn-luxury group">
+                <Button className="btn-modern group w-full sm:w-auto">
                   {t.outbound.cta}
-                  <ArrowRight className={`w-4 h-4 ml-2 transition-transform group-hover:translate-x-1 ${isRTL ? 'rotate-180' : ''}`} />
+                  <ArrowRight className={`w-5 h-5 ${isRTL ? 'mr-3' : 'ml-3'} transition-transform group-hover:${isRTL ? '-translate-x-1' : 'translate-x-1'} ${isRTL ? 'rotate-180' : ''}`} />
                 </Button>
               </a>
             </div>

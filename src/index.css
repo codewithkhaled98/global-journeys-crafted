@@ -103,12 +103,22 @@
   }
 
   body {
-    @apply bg-background text-foreground font-inter overflow-x-hidden;
+    @apply bg-background text-foreground font-inter overflow-x-hidden leading-relaxed;
     font-family: var(--font-family);
+    line-height: 1.7;
   }
 
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Better typography base */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair leading-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
   }
 
   /* Custom scrollbar */
@@ -130,29 +140,44 @@
 }
 
 @layer components {
-  /* Luxury Button Variants */
-  .btn-luxury {
-    @apply inline-flex items-center justify-center rounded-lg px-8 py-4 text-sm font-medium transition-all duration-300;
+  /* Modern Button Variants */
+  .btn-modern {
+    @apply inline-flex items-center justify-center rounded-xl px-8 py-4 text-base font-semibold transition-all duration-300;
     @apply bg-gradient-to-r from-primary to-primary-glow text-primary-foreground;
-    @apply hover:shadow-gold-glow hover:scale-105 active:scale-95;
-    @apply border border-primary/20;
+    @apply hover:shadow-gold-glow hover:-translate-y-0.5 active:translate-y-0;
+    @apply border border-primary/20 min-h-[52px];
   }
 
-  .btn-luxury-outline {
-    @apply inline-flex items-center justify-center rounded-lg px-8 py-4 text-sm font-medium transition-all duration-300;
-    @apply bg-transparent border border-primary text-primary;
-    @apply hover:bg-primary hover:text-primary-foreground hover:shadow-gold-glow;
+  .btn-modern-outline {
+    @apply inline-flex items-center justify-center rounded-xl px-8 py-4 text-base font-semibold transition-all duration-300;
+    @apply bg-transparent border-2 border-primary text-primary;
+    @apply hover:bg-primary hover:text-primary-foreground hover:shadow-gold-glow hover:-translate-y-0.5;
+    @apply min-h-[52px];
   }
 
-  .btn-luxury-ghost {
-    @apply inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-medium transition-all duration-300;
-    @apply bg-transparent text-primary hover:bg-primary/10 hover:text-primary-glow;
+  .btn-modern-ghost {
+    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-medium transition-all duration-300;
+    @apply bg-transparent text-foreground hover:bg-primary/10 hover:text-primary;
+    @apply min-h-[44px];
   }
 
-  /* Luxury Card */
-  .card-luxury {
-    @apply bg-card border border-border rounded-xl shadow-elegant;
-    @apply backdrop-blur-sm bg-card/80;
+  /* Modern Card */
+  .card-modern {
+    @apply bg-card/90 backdrop-blur-sm border border-border/50 rounded-2xl shadow-elegant;
+    @apply hover:shadow-luxury hover:-translate-y-1 transition-all duration-300;
+  }
+
+  /* Conversion-focused sections */
+  .section-padding {
+    @apply py-24 lg:py-32;
+  }
+
+  .container-wide {
+    @apply max-w-7xl mx-auto px-6 lg:px-8;
+  }
+
+  .text-balance {
+    text-wrap: balance;
   }
 
   /* Text Gradients */
